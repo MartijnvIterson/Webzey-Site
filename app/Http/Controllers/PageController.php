@@ -15,8 +15,8 @@ class pageController extends Controller
     public function home() {
         return view('contact')->with(['tasks' => ['Martijn', 'van', 'Iterson']]);
     }
-    public function algemeen() {
-       return view('algemeen', ['threads' => Post::orderby('id', 'desc')->paginate(10)]);
+    public function homeWebzey() {
+       return view('home_webzey', ['threads' => Post::orderby('id', 'desc')->paginate(10)]);
     }
     public function view(Post $id) {
         return view('post', ['post' => $id]);
