@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'pageController@algemeen');
+Route::get('/', 'pageController@homeWebzey');
 Route::get('/post/view/{id}/{post}', 'pageController@view');
 Route::get('/post/create', ['middleware' => 'auth', 'uses' => 'pageController@createpost']);
 Route::get('/post/overzicht', ['middleware' => 'auth', 'uses' => 'pageController@postsoverview']);
