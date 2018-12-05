@@ -170,7 +170,7 @@ class PermController extends Controller
 
     }
     public function deletePost(Post $post) {
-        if(Auth::user()->id == $post->user->id) {
+        if(Auth::user()->id == $post->user->id || Auth::user()->can('berichten-verwijderen')) {
             Comment::where('post_id', '=', $post->id)->delete();
             Post::where('id', '=', $post->id)->delete();
             return redirect('/');
