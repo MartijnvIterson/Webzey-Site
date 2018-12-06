@@ -108,7 +108,7 @@ class PermController extends Controller
         Role::where('id', '=', $request['rank-id'])->delete();
         return redirect('/user/settings', 302);
     }
-    public static function date_month($db) {
+    public static function dateMonth($db) {
         $timestamp = strtotime($db);
         $month = date("m", $timestamp);
         switch ($month) {
@@ -154,7 +154,7 @@ class PermController extends Controller
         }
         return $month;
     }
-    public static function date_day($db) {
+    public static function dateDay($db) {
         $timestamp = strtotime($db);
         Return date("d", $timestamp);
     }

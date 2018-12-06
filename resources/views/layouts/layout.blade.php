@@ -131,22 +131,20 @@
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Algemene voorwaarde</a> </p>
             </div><div class="webzey-dashboard-bottum-info-block">
                 <b style="font-size: 20px; line-height: 10px;"><i class="fa fa-shopping-cart"></i> Betaalmogelijkheden</b><hr>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Kennisbank</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Contact</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Privacy Policy</a> </p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Algemene voorwaarde</a> </p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Paypal</a></p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Ideal</a></p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Credit Card</a> </p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">PaySafeCard</a> </p>
             </div><div class="webzey-dashboard-bottum-info-block">
                 <b style="font-size: 20px; line-height: 10px;"><i class="fa fa-tasks"></i> Diensten</b><hr>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Kennisbank</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Contact</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Privacy Policy</a> </p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Algemene voorwaarde</a> </p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Websites</a></p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Systemen</a></p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Templates</a> </p>
+                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Web hosting</a> </p>
             </div><div class="webzey-dashboard-bottum-info-block">
                 <b style="font-size: 20px; line-height: 10px;"><i class="fa fa-rss"></i> Ons laatste nieuws</b><hr>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Kennisbank</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Contact</a></p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Privacy Policy</a> </p>
-                <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Algemene voorwaarde</a> </p>
+                <p style=""><a style="color: #636b6f;" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat eros cursus ex ultrices, eget suscipit turpis tempor. Nullam vitae velit egestas nulla porttitor efficitur sed vitae risus. Morbi commodo nisl eu urna aliquam ultricies.</a></p>
+
             </div>
         </div>
         <div class="webzey-dashboard-bottum-bottum"><h6 style="margin-left: 25px">Webzey - Nederland   <b>|</b>    2016 - {{ date('Y') }}</h6></div>

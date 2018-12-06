@@ -25,8 +25,8 @@
         <div style="color: #4b5462;" class="webzey-post-block">
             <div class="webzey-dateblock">
                 <div class="webzey-dateblock-up">
-                    <b>{{ \App\Http\Controllers\PermController::date_month($thread->created_at) }}</b>
-                </div>{{ \App\Http\Controllers\PermController::date_day($thread->created_at) }}
+                    <b>{{ \App\Http\Controllers\PermController::dateMonth($thread->created_at) }}</b>
+                </div>{{ \App\Http\Controllers\PermController::dateDay($thread->created_at) }}
             </div>
             <b style='margin-left: 25px'> {{ $thread->title }}</b>
             <hr>
