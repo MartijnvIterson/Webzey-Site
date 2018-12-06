@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class EditGroup extends FormRequest
+class CreateBlogCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class EditGroup extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can('groep-aanpassen');
+        return Auth::user();
     }
 
     /**
@@ -25,17 +25,8 @@ class EditGroup extends FormRequest
     public function rules()
     {
         return [
-            'color' => 'required|max:7',
-            'name' => 'required|max:25',
-        ];
-
-
-    }
-    public function messages()
-    {
-        return [
-            'name.required' => 'Je hebt de permission naam niet ingevuld.',
-            'name.max' => 'De permission naam is te lang.',
+            'message' => 'required|unique:posts|max:255',
+            'thread' => 'required',
         ];
     }
 }

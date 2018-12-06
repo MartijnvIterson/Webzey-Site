@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class Search extends FormRequest
+class EditUserGroupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class Search extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can('gebruiker-groep-aanpassen');
     }
 
     /**

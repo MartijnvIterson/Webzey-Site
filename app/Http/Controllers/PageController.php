@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Search;
+use App\Http\Requests\SearchRequest;
 use App\Permission;
 use App\Role;
 use App\Post;
@@ -10,22 +10,19 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 
 
-class pageController extends Controller
+class PageController extends Controller
 {
     public function home() {
-        return view('contact')->with(['tasks' => ['Martijn', 'van', 'Iterson']]);
-    }
-    public function homeWebzey() {
        return view('home_webzey', ['threads' => Post::orderby('id', 'desc')->paginate(10)]);
     }
-    public function view(Post $id) {
-        return view('post', ['post' => $id]);
+    public function view(Post $post) {
+        return view('post', ['post' => $post]);
     }
 
-    public function createpost() {
+    public function createPost() {
         return view('create_post');
     }
-    public function postsoverview() {
+    public function postsOverview() {
         return view('posts_overzicht', [ 'threads' => Post::where('user_id', Auth::user()->id)->orderby('id', 'desc')->get()]);
     }
     public function permissions() {
@@ -37,18 +34,11 @@ class pageController extends Controller
         })->pluck('id')->toArray();
         return view('permissions_edit_group', ['rank' => $rank, 'permission' => $permissions]);
     }
-    public function userProfile($user) {
-        $role = Role::whereHas('users', function ($query) use ($user) {
-            $query->where('id', '=', $user);
-        })->pluck('id')->toArray();
-        $roles = Role::with('users')->select('roles.name as Rolename', 'roles.description', 'roles.id')->get();
-        return view('userProfile', ['role' => $role, 'roles' => $roles, 'user' => User::where('id', '=', $user)->first()]);
+    public function userProfile(User $user) {
+        return view('userProfile', ['role' => $user->roles()->getResults()->pluck('id')->toArray(), 'roles' => Role::with('users')->select('roles.name as Rolename', 'roles.description', 'roles.id')->get(), 'user' => User::where('id', '=', $user->id)->first()]);
     }
-    public function search(Search $request) {
+    public function search(SearchRequest $request) {
         return view('search', ['users' => User::where('name', '=', $request->search)->get(), 'posts' => Post::where('title', '=', $request->search)->get()]);
     }
-
-
-
 }
 

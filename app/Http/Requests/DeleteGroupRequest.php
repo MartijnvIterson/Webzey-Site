@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CreateBlogComment extends FormRequest
+class DeleteGroupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class CreateBlogComment extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user();
+        return Auth::user()->can('groep-verwijderen');
     }
 
     /**
@@ -25,8 +25,7 @@ class CreateBlogComment extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'required|unique:posts|max:255',
-            'thread' => 'required',
+            //
         ];
     }
 }

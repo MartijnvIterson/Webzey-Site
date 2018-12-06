@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\Http\Requests\CreateBlogComment;
-use App\Http\Requests\CreateBlogPost;
-use App\Http\Requests\CreatePerm;
-use App\Http\Requests\DeleteGroup;
-use App\Http\Requests\DeleteOwnPost;
-use App\Http\Requests\EditGroup;
-use App\Http\Requests\EditUserGroup;
-use App\Http\Requests\Search;
+use App\Http\Requests\CreateBlogCommentRequest;
+use App\Http\Requests\CreateBlogPostRequest;
+use App\Http\Requests\CreatePermRequest;
+use App\Http\Requests\DeleteGroupRequest;
+use App\Http\Requests\EditGroupRequest;
+use App\Http\Requests\EditUserGroupRequest;
 use App\Permission;
 use App\Post;
 use App\Role;
 use App\User;
-use App\Http\Requests\CreateGroup;
+use App\Http\Requests\CreateGroupRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class PermController extends Controller
 {
-    public function createRole(CreateGroup $request)
+    public function createRole(CreateGroupRequest $request)
     {
             Role::create([
                 'name' => $request->name,
@@ -31,7 +29,7 @@ class PermController extends Controller
             ]);
             return Redirect::back();
     }
-    public function createPerm(CreatePerm $request) {
+    public function createPerm(CreatePermRequest $request) {
         Permission::create([
             'name' => $request->name,
             'display_name' => $request->display_name,
@@ -39,7 +37,7 @@ class PermController extends Controller
         ]);
         return Redirect::back();
     }
-    public function editRole(EditGroup $request)
+    public function editRole(EditGroupRequest $request)
     {
         $role = Role::where('id', '=', $request->id)->first();
         $roleperm = Permission::whereHas('roles', function ($query) use ($request) {
@@ -55,7 +53,7 @@ class PermController extends Controller
         }
         return Redirect::back();
     }
-    public function editUserGroup(EditUserGroup $request) {
+    public function editUserGroup(EditUserGroupRequest $request) {
         $role_id = Role::whereHas('users', function ($query) use ($request) {
             $query->where('user_id', '=', $request->user);
         })->pluck('id')->toArray();
@@ -70,7 +68,7 @@ class PermController extends Controller
         }
         return Redirect::back();
     }
-    public function CreateBlogComment(CreateBlogComment $request)
+    public function CreateBlogComment(CreateBlogCommentRequest $request)
     {
 
         if (strpos($request->message, 'script')) {
@@ -87,7 +85,7 @@ class PermController extends Controller
 
         return Redirect::back();
     }
-    public function CreateBlogPost(CreateBlogPost $request)
+    public function CreateBlogPost(CreateBlogPostRequest $request)
     {
 
         if (strpos($request->message, 'script')) {
@@ -105,7 +103,7 @@ class PermController extends Controller
         }
         return redirect('/post/overzicht', 302);
     }
-    public function deleteGroup(DeleteGroup $request) {
+    public function deleteGroup(DeleteGroupRequest $request) {
 
         Role::where('id', '=', $request['rank-id'])->delete();
         return redirect('/user/settings', 302);
