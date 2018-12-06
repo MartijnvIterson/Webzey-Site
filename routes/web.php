@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'pageController@home');
-Route::get('/post/view/{id}/{post}', 'pageController@view');
+Route::get('/post/view/{post}', 'pageController@view');
 Route::get('/post/create', ['middleware' => 'auth', 'uses' => 'pageController@createPost']);
 Route::get('/post/overzicht', ['middleware' => 'auth', 'uses' => 'pageController@postsOverview']);
 Route::get('/user/settings', ['middleware' => 'auth', 'uses' => 'pageController@permissions']);
@@ -22,8 +22,8 @@ Route::get('delete-post/{post}', ['middleware' => 'auth', 'uses' => 'PermControl
 Route::get('delete-comment/{comment}', ['middleware' => 'auth', 'uses' => 'PermController@deleteComment']);
 
 Route::post('create-perm', ['middleware' => 'auth', 'uses' => 'PermController@createPerm']);
-Route::post('submit-comment', ['middleware' => 'auth', 'uses' => 'PermController@CreateBlogCommentRequest']);
-Route::post('submit-post', ['middleware' => 'auth', 'uses' => 'PermController@CreateBlogPostRequest']);
+Route::post('submit-comment', ['middleware' => 'auth', 'uses' => 'PermController@CreateBlogComment']);
+Route::post('submit-post', ['middleware' => 'auth', 'uses' => 'PermController@CreateBlogPost']);
 Route::post('create-role', ['middleware' => 'auth', 'uses' => 'PermController@createRole']);
 Route::post('submit-group-settings', ['middleware' => 'auth', 'uses' => 'PermController@editRole']);
 Route::post('save-user-group', ['middleware' => 'auth', 'uses' => 'PermController@editUserGroup']);

@@ -33,7 +33,7 @@
             <div style='margin-left: 25px; margin-right: 25px; font-size: 14px'> {!! $thread->message !!}
             </div>
             <p style='margin-left: 25px'>{{ $thread->user->name }}</p>
-            <a href="/post/view/{{ $thread->id . '/' . $thread->slug }}" style="color: #3d4852"><p style="float: right; margin-right: 25px">Bekijk bericht <i class="fa fa-comments"></i> </p></a>
+            <a href="/post/view/{{ $thread->slug }}" style="color: #3d4852"><p style="float: right; margin-right: 25px">Bekijk bericht <i class="fa fa-comments"></i> </p></a>
         </div>
 
     @endforeach

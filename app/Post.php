@@ -15,7 +15,7 @@ class Post extends Model
     }
     function getRouteKeyName()
     {
-        return 'id';
+        return 'slug';
     }
     protected $fillable = ['user_id', 'message', 'title', 'slug'];
     protected $table = 'Posts';
