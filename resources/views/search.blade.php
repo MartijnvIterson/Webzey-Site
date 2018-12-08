@@ -26,7 +26,7 @@
         <div class="webzey-setting-create-menu-hide"><b>POSTS</b></div>
         @foreach ($posts as $post)
             <div style="border: 1px solid #ddd; width: 100%; height: 60px">
-                <p style="font-size: 14px; margin-top: 15px; color: #3d4852"><b style="float: left; margin-left: 15px"><i class="fa fa-bandcamp"></i> {{ $post->title }}</b> <a style="margin-left: 10px"> by: {{ $post->user->name }} </a><a href="/post/view/{{ $post->id }}/{{ $post->slug }}" style="float: right; margin-right: 15px">Bekijk bericht</a></p>
+                <p style="font-size: 14px; margin-top: 15px; color: #3d4852"><b style="float: left; margin-left: 15px"><i class="fa fa-bandcamp"></i> {{ $post->title }}</b> <a style="margin-left: 10px"> by: {{ $post->user->name }} </a><a href="/post/view/{{ $post->slug}}" style="float: right; margin-right: 15px">Bekijk bericht</a></p>
             </div>
         @endforeach
     </div>

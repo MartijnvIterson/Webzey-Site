@@ -25,8 +25,8 @@ class CreateBlogPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'required|max:10000',
-            'title' => 'required',
+            'message' => 'required|max:3000',
+            'title' => 'required|unique:posts',
         ];
 
 
