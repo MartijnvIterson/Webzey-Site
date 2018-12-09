@@ -30,6 +30,9 @@ Route::post('save-user-group', ['middleware' => 'auth', 'uses' => 'PermControlle
 Route::post('submit-delete-group', ['middleware' => 'auth', 'uses' => 'PermController@deleteGroup']);
 Route::post('submit-delete-comment', ['middleware' => 'auth', 'uses' => 'PermController@deleteComment']);
 Route::post('submit-delete-post', ['middleware' => 'auth', 'uses' => 'PermController@deletePost']);
+Route::post('reset-password', ['middleware' => 'auth', 'uses' => 'PermController@resetPassword']);
+Route::post('change-password', ['middleware' => 'auth', 'uses' => 'PermController@editPassword']);
+Route::post('change-user', ['middleware' => 'auth', 'uses' => 'PermController@editUserInfo']);
 Route::post('webzey-search', 'PageController@search');
 
 Auth::routes();

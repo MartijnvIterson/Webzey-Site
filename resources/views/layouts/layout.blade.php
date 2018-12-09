@@ -136,7 +136,7 @@
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Credit Card</a> </p>
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">PaySafeCard</a> </p>
             </div><div class="webzey-dashboard-bottum-info-block">
-                <b style="font-size: 20px; line-height: 10px;"><i class="fa fa-tasks"></i> Diensten</b><hr>
+                <b style="font-size: 20px; line-height: 10px;"><i class="fa fa-tasks"></i> Producten</b><hr>
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Websites</a></p>
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Systemen</a></p>
                 <p style="line-height: 10px;"><a style="color: #636b6f;" href="">Templates</a> </p>

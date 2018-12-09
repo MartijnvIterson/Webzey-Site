@@ -18,5 +18,5 @@ class Post extends Model
         return 'slug';
     }
     protected $fillable = ['user_id', 'message', 'title', 'slug'];
-    protected $table = 'Posts';
+    protected $table = 'posts';
 }

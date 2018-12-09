@@ -9,12 +9,17 @@ use App\Http\Requests\CreatePermRequest;
 use App\Http\Requests\DeleteGroupRequest;
 use App\Http\Requests\EditGroupRequest;
 use App\Http\Requests\EditUserGroupRequest;
+use App\Http\Requests\EditUserInfoRequest;
+use App\Http\Requests\EditUserPasswordRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Permission;
 use App\Post;
 use App\Role;
 use App\User;
 use App\Http\Requests\CreateGroupRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class PermController extends Controller
@@ -175,5 +180,22 @@ class PermController extends Controller
         } else {
             abort(403, 'Je hebt hier geen toestemming voor.');
         }
+    }
+    public function resetPassword(ResetPasswordRequest $request) {
+        $password = User::where('id', '=', Auth::user()->id)->pluck('password');
+        if (Hash::check($request['old-password-0'], $password[0]))
+        {
+            User::where('id', '=', Auth::user()->id)->update(['password' => Hash::make($request['new-password-0'])]);
+        } else {
+            abort(403, 'Password error.');
+        }
+    }
+    public function editPassword(EditUserPasswordRequest $request) {
+        User::where('id', '=', $request['user-id'])->update(['password' => Hash::make($request['user-password'])]);
+        return Redirect::back();
+    }
+    public function editUserInfo(EditUserInfoRequest $request) {
+        User::where('id', '=', $request['user-id'])->update(['name' => $request['user-name'], 'email' => $request['user-email']]);
+        return Redirect::back();
     }
 }

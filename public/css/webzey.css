@@ -275,6 +275,9 @@ a:hover {
 .webzey-setting-rank-block {
     min-height: 170px;text-align: left;margin-bottom: 10px;padding: 5px; height: auto; position: relative; background-color: white; border: 1px solid #ddd; width: 21%; margin-left: 3%; float: left; margin-top: 10px
 }
+.webzey-user-profile {
+    margin-left: 5%; float: left; width: 42%; border: 1px solid #ddd; background-color: #FFFFFF; margin-top: 50px; height: auto
+}
 @media only screen and (max-width: 960px) {
     .webzey-menu-block-title {
         margin-left: 0;
@@ -388,5 +391,9 @@ a:hover {
     .webzey-setting-rank-block {
         width: 45%;
         margin-left: 3%;
+    }
+    .webzey-user-profile {
+        width: 90%;
+        margin-left: 5%;
     }
 }
