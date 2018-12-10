@@ -164,16 +164,15 @@ class PermController extends Controller
         Return date("d", $timestamp);
     }
     public function deleteComment(Comment $comment) {
-        if(Auth::user()->id == $comment->user->id || Auth::user()->can('berichten-verwijderen')) {
+        if ($this->authorize('delete', $comment) || Auth::user()->can('berichten-verwijderen')) {
             Comment::where('id', '=', $comment->id)->delete();
             return Redirect::back();
         } else {
             abort(403, 'Je hebt hier geen toestemming voor.');
         }
-
     }
     public function deletePost(Post $post) {
-        if(Auth::user()->id == $post->user->id || Auth::user()->can('berichten-verwijderen')) {
+        if ($this->authorize('delete', $post) || Auth::user()->can('berichten-verwijderen')) {
             Comment::where('post_id', '=', $post->id)->delete();
             Post::where('id', '=', $post->id)->delete();
             return redirect('/');
