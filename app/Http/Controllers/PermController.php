@@ -167,8 +167,6 @@ class PermController extends Controller
         if (Auth::user()->can('berichten-verwijderen') || $this->authorize('delete', $comment)) {
             Comment::where('id', '=', $comment->id)->delete();
             return Redirect::back();
-        } else {
-            abort(403, 'Je hebt hier geen toestemming voor.');
         }
     }
     public function deletePost(Post $post) {
@@ -176,8 +174,6 @@ class PermController extends Controller
             Comment::where('post_id', '=', $post->id)->delete();
             Post::where('id', '=', $post->id)->delete();
             return redirect('/');
-        } else {
-            abort(403, 'Je hebt hier geen toestemming voor.');
         }
     }
     public function resetPassword(ResetPasswordRequest $request) {
