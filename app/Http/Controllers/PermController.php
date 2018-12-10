@@ -164,7 +164,7 @@ class PermController extends Controller
         Return date("d", $timestamp);
     }
     public function deleteComment(Comment $comment) {
-        if ($this->authorize('delete', $comment) || Auth::user()->can('berichten-verwijderen')) {
+        if (Auth::user()->can('berichten-verwijderen') || $this->authorize('delete', $comment)) {
             Comment::where('id', '=', $comment->id)->delete();
             return Redirect::back();
         } else {
@@ -172,7 +172,7 @@ class PermController extends Controller
         }
     }
     public function deletePost(Post $post) {
-        if ($this->authorize('delete', $post) || Auth::user()->can('berichten-verwijderen')) {
+        if (Auth::user()->can('berichten-verwijderen') || $this->authorize('delete', $post)) {
             Comment::where('post_id', '=', $post->id)->delete();
             Post::where('id', '=', $post->id)->delete();
             return redirect('/');
