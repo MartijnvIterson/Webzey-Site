@@ -75,37 +75,37 @@ class PermController extends Controller
     }
     public function CreateBlogComment(CreateBlogCommentRequest $request)
     {
+        asset('\vendor\ezyang\htmlpurifier\library');
 
-        if (strpos($request->message, 'script')) {
-            return abort(403, 'Er zijn tekens gebruikt die niet toegestaan zijn!');
-        } elseif (strpos($request->message, 'function')) {
-            return abort(403, 'Er zijn tekens gebruikt die niet toegestaan zijn!');
-        } else {
+        $config = \HTMLPurifier_Config::createDefault();
+        $purifier = new \HTMLPurifier($config);
+        $message = $purifier->purify($request->message);
+
             Comment::create([
-                'message' => $request->message,
+                'message' => $message,
                 'user_id' => Auth::user()->id,
                 'post_id' => $request->thread,
             ]);
-        }
 
         return Redirect::back();
     }
     public function CreateBlogPost(CreateBlogPostRequest $request)
     {
 
-        if (strpos($request->message, 'script')) {
-            return abort(403, 'Er zijn tekens gebruikt die niet toegestaan zijn!');
-        } elseif (strpos($request->message, 'function')) {
-            return abort(403, 'Er zijn tekens gebruikt die niet toegestaan zijn!');
-        } else {
+        asset('\vendor\ezyang\htmlpurifier\library');
+
+        $config = \HTMLPurifier_Config::createDefault();
+        $purifier = new \HTMLPurifier($config);
+        $message = $purifier->purify($request->message);
             $slug = str_replace(' ', '-', $request->title);
+
             Post::create([
-                'message' => $request->message,
+                'message' => $message,
                 'user_id' => Auth::user()->id,
                 'title' => $request->title,
                 'slug' => $slug,
             ]);
-        }
+
         return redirect('/post/overzicht', 302);
     }
     public function deleteGroup(DeleteGroupRequest $request) {

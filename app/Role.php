@@ -7,14 +7,14 @@ use Zizaco\Entrust\EntrustRole;
 class Role extends EntrustRole
 {
     protected $with = ['users'];
-    public function comments() {
-        return $this->hasMany('App\User');
-    }
     protected $fillable = ['name', 'display_name', 'description', 'color'];
     protected $table = 'roles';
     function getRouteKeyName()
     {
         return 'name';
+    }
+    public function comments() {
+        return $this->hasMany('App\User');
     }
 
 }

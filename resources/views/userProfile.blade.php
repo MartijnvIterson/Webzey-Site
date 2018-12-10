@@ -75,8 +75,8 @@
             </form>
         </div>
     </div>
-    @else
-        <div class="webzey-user-profile" style="margin-left: 5%; float: left; width: 42%; border: 1px solid #ddd; background-color: #FFFFFF; margin-top: 50px; height: auto">
+    @elseif(Auth::user()->id == $user->id)
+        <div class="webzey-user-profile">
             <div class="webzey-setting-create-menu-hide"><b>USER INSTELLINGEN</b></div>
             <div>
                 <form>

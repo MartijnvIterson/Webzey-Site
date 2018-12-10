@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $with = ['comments', 'user'];
+    protected $fillable = ['user_id', 'message', 'title', 'slug'];
+    protected $table = 'posts';
     public function comments() {
         return $this->hasMany('App\Comment');
     }
@@ -17,6 +19,4 @@ class Post extends Model
     {
         return 'slug';
     }
-    protected $fillable = ['user_id', 'message', 'title', 'slug'];
-    protected $table = 'posts';
 }

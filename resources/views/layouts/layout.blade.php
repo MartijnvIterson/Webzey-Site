@@ -84,13 +84,16 @@
             <a class="webzey-menu-block-text" href="#webzey-fake-link"><i class="fa fa-picture-o"></i> Portofolio</a><br>
             <a class="webzey-menu-block-text" href="/"><i class="fa fa-comments"></i> Blog</a><br>
         </div>
+        @if(Auth::user())
         <div class="webzey-menu-block">
             <a class="webzey-menu-block-title" href="#webzey-fake-link"><b>BEHEER</b></a><br>
             @guest
             <a><i class="fa fa-exclamation-triangle"></i> Geen toestemming</a>
             @else
             <a class="webzey-menu-block-text" href="/home"><i class="fa fa-user-o"></i> Account</a><br>
+            @permission('toegang-administratie')
             <a class="webzey-menu-block-text" href="/user/settings"><i class="fa fa-tachometer"></i> Dashboard</a><br>
+            @endpermission
             <a class="webzey-menu-block-text" href="/user/profile/{{ Auth::user()->id  }}/{{ Auth::user()->name }}"><i class="fa fa-sliders"></i> Instellingen</a><br>
             <a class="webzey-menu-block-text" href="{{ route('logout') }}"
                onclick="event.preventDefault();
@@ -98,6 +101,7 @@
             </a>
             @endguest
         </div>
+        @endif
         <div style="position: relative; width: 100%; float: left; text-align: center; margin-bottom: 30px;"><hr>
             @guest
                 <div style="margin-top: 30px; margin-left: 30%; margin-right: 30%; padding: 10px; background-color: #3d4852; width: 40%; border-radius: 25px; color: white"><a style="color: #ffffff" href="{{ route('home') }}"><b>Inloggen </b><b style="color: #818181">|</b><b> Registeren</b></a></div>

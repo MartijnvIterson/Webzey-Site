@@ -1,6 +1,11 @@
 @extends('layouts.layout')
 @section('title', 'Webzey')
 @section('content')
+    <div style="margin-top: 0px"><img src="{{ asset('img/logo-blog.png') }}" style="width: 100%; height: 400px"></div>
+    <p style="position: absolute; top: 345px; left: 30px;color: #FFFFFF"><b style="font-size: 20px">DASHBOARD</b> <br> </p>
+    <div style="float: left;font-size: 12px; border: 1px solid #ddd; background-color: #FFFFFF; width: 100%; text-align: center">
+        <a style="color: #3d4852" href="javascript:history.go(-1)"><div style="float: left; margin-left: 0px; width: 75px; background-color: #FFFFFF; padding: 10px"><i class="fa fa-undo"></i></div></a>
+    </div>
     <link rel='stylesheet' href='{{ asset('css/webzey.css') }}'>
     <div style="text-align: center; color: #4b5462; float: right; margin-left: 5%; margin-top: 100px;" class="webzey-rights-search">
         <form action="/webzey-search" method="post">
