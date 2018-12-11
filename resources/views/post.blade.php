@@ -24,10 +24,10 @@
         <div style='margin-left: 25px; margin-right: 25px; font-size: 14px; color: #818181'> {!! $post->message !!}</div>
         <p style='margin-left: 25px'><a style="color:#3d4852;" href="/user/profile/{{ $post->user->id }}/{{ $post->user->name }}">{{ $post->user->name }}</a>  <a style="float: right; margin-right: 25px; font-size: 8px; color: #636b6f">{{ $post->created_at }}</a>
             @auth @if(Auth::user()->id == $post->user->id)
-                <a style="color: #3d4852; float: right; font-size: 8px; margin-right: 20px;" href="/delete-post/{{ $post->title }}">Verwijderen</a>
+                <a style="color: #3d4852; float: right; font-size: 8px; margin-right: 20px;" href="/delete-post/{{ $post->slug }}">Verwijderen</a>
                       @else
                 @permission('berichten-verwijderen')
-                <a style="color: #3d4852; float: right; font-size: 8px; margin-right: 20px;" href="/delete-post/{{ $post->title }}">Verwijderen</a>
+                <a style="color: #3d4852; float: right; font-size: 8px; margin-right: 20px;" href="/delete-post/{{ $post->slug }}">Verwijderen</a>
                 @endpermission
         @endif @endauth
         </p>
