@@ -8,6 +8,14 @@
     <div style="float: left;font-size: 12px; border: 1px solid #ddd; background-color: #FFFFFF; width: 100%; text-align: center">
         <a style="color: #3d4852" href="/user/settings"><div style="float: left; margin-left: 0px; width: 75px; background-color: #FFFFFF; padding: 10px"><i class="fa fa-undo"></i></div></a>
     </div>
+    @if ($errors->any())
+        <div id="error" style="position: fixed; width: 200px; height: auto; right: 60px; top: 60px; z-index: 1001"; class="alert alert-danger">
+            <b>Oeps... er ging iets fout!</b>
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
         <div class="webzey-setting-group-users">
             <div class="webzey-setting-create-menu-hide"><b>USERS</b> <b style="font-size: 7px;color: {{ $rank->color }}">{{ $rank->name }}</b></div>
             <div style="height: auto; background-color: #FFFFFF; border: 1px solid #ddd">
@@ -31,7 +39,8 @@
                 <form action="/submit-group-settings" method="post">
                     <br>
                     <b style="font-size: 12px; max-width: 70%; margin-left: 10%">RANK KLEUR</b> <input name="color" value="{{ $rank->color }}" type="color" style="margin-right: 10%; float: right;padding: 5px; width: 30px; margin-left: 5%; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px"><p style="font-size: 10px; max-width: 70%; margin-left: 11%">Met deze optie kan jij de kleur van de rank aanpassen. <br>Deze kleur zou dan overal te zien zijn waar de rank getoond wordt.</p>
-                    <b style="font-size: 12px; max-width: 70%; margin-left: 10%">GETOONDE NAAM</b><input name="name" value="{{ $rank->display_name }}" type="text" placeholder="Getoonde naam" style="margin-right: 5%; float: right;padding: 5px; width: 10%; margin-left: 5%; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px"><p style="font-size: 10px; max-width: 70%; margin-left: 11%">Met deze optie kan jij de display naam van een rank aanpassen. <br> Let wel op dat de ranknaam hetzelfde blijft.</p>
+                    <b style="font-size: 12px; max-width: 70%; margin-left: 10%">GETOONDE NAAM</b><input name="display-name" value="{{ $rank->display_name }}" type="text" placeholder="Getoonde naam" style="margin-right: 5%; float: right;padding: 5px; width: 10%; margin-left: 5%; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px"><p style="font-size: 10px; max-width: 70%; margin-left: 11%">Met deze optie kan jij de display naam van een rank aanpassen. <br> Let wel op dat de ranknaam hetzelfde blijft.</p>
+                    <b style="font-size: 12px; max-width: 70%; margin-left: 10%">GROEP NAAM</b><input name="groep-name" value="{{ $rank->name }}" type="text" placeholder="Groep naam" style="margin-right: 5%; float: right;padding: 5px; width: 10%; margin-left: 5%; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px"><p style="font-size: 10px; max-width: 70%; margin-left: 11%">Met deze optie kan jij de naam van een rank aanpassen.<br></p>
                     <b style="font-size: 12px; max-width: 70%; margin-left: 10%">GEBRUIKERS GROEP AANPASSEN</b>
                     <label style="float: right; margin-right: 10%"  class="switch">
                         <input type="checkbox" name="permission_1" @if(in_array(1, $permission)) checked @endif>

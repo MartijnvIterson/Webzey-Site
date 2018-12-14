@@ -26,7 +26,8 @@ class EditGroupRequest extends FormRequest
     {
         return [
             'color' => 'required|max:7',
-            'name' => 'required|max:25',
+            'display-name' => 'required|max:25',
+            'groep-name' => 'required|max:25',
         ];
 
 
@@ -34,8 +35,8 @@ class EditGroupRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Je hebt de permission naam niet ingevuld.',
-            'name.max' => 'De permission naam is te lang.',
+            'name.required' => 'Je hebt de groep naam niet ingevuld.',
+            'name.max' => 'De groep naam is te lang.',
         ];
     }
 }

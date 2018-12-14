@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 @section('title', 'Webzey')
 @section('content')
@@ -55,7 +54,5 @@
             </div>
             </form>
         @endguest
-
-
 @endsection
 

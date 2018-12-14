@@ -44,6 +44,7 @@ class PermController extends Controller
     }
     public function editRole(EditGroupRequest $request)
     {
+        Role::where('id', '=', $request->id)->update(['display_name' => $request['display-name'], 'name' => $request['groep-name'], 'color' => $request->color]);
         $role = Role::where('id', '=', $request->id)->first();
         $roleperm = Permission::whereHas('roles', function ($query) use ($request) {
             $query->where('id', '=', $request->id);
