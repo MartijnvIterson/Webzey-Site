@@ -55,7 +55,7 @@
                         setTimeout(
                             function() {
                                 x.style.display = "none";
-                            }, 2000);
+                            }, 500);
                     } else {
                         x.style.display = "block";
                         x.style.animationName = "open";
@@ -70,7 +70,7 @@
         </div>
     </nav>
 
-    <div style="animation-duration: 2s;z-index: 1000; opacity: 0.9;overflow: hidden;margin-top: 45px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); height: auto; width: 100%; background-color: white; position: fixed; z-index: 10; display: none" id="myLinks">
+    <div style="animation-duration: 0.5s;z-index: 1000; opacity: 0.9;overflow: hidden;margin-top: 45px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); height: auto; width: 100%; background-color: white; position: fixed; z-index: 10; display: none" id="myLinks">
         <div class="webzey-menu-block">
             <a class="webzey-menu-block-title" href="#webzey-fake-link"><b>CONTACT</b></a><br>
             <a class="webzey-menu-block-text" href="#webzey-fake-link"><i class="fa fa-ticket"></i> Tickets</a><br>
