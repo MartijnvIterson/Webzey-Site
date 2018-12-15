@@ -79,7 +79,7 @@
         </div>
         <div class="webzey-menu-block">
             <a class="webzey-menu-block-title" href="#webzey-fake-link"><b>INFORMATIE</b></a><br>
-            <a class="webzey-menu-block-text" href="#webzey-fake-link"><i class="fa fa-home"></i> Homepagina</a><br>
+            <a class="webzey-menu-block-text" href="/"><i class="fa fa-home"></i> Homepagina</a><br>
             <a class="webzey-menu-block-text" href="#webzey-fake-link"><i class="fa fa-coffee"></i> Over ons</a><br>
             <a class="webzey-menu-block-text" href="#webzey-fake-link"><i class="fa fa-picture-o"></i> Portofolio</a><br>
             <a class="webzey-menu-block-text" href="/"><i class="fa fa-comments"></i> Blog</a><br>

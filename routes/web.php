@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'pageController@home');
-Route::get('/post/view/{post}', 'pageController@view');
-Route::get('/post/create', ['middleware' => 'auth', 'uses' => 'pageController@createPost']);
-Route::get('/post/overzicht', ['middleware' => 'auth', 'uses' => 'pageController@postsOverview']);
-Route::get('/user/settings', ['middleware' => 'auth', 'uses' => 'pageController@permissions']);
-Route::get('/user/edit/rank/{rank}', ['middleware' => 'auth', 'uses' => 'pageController@ranks']);
-Route::get('/user/profile/{user}/{username}', ['middleware' => 'auth', 'uses' => 'pageController@userProfile']);
+Route::get('/', 'PageController@home');
+Route::get('/post/view/{post}', 'PageController@view');
+Route::get('/post/create', ['middleware' => 'auth', 'uses' => 'PageController@createPost']);
+Route::get('/post/overzicht', ['middleware' => 'auth', 'uses' => 'PageController@postsOverview']);
+Route::get('/user/settings', ['middleware' => 'auth', 'uses' => 'PageController@permissions']);
+Route::get('/user/edit/rank/{rank}', ['middleware' => 'auth', 'uses' => 'PageController@ranks']);
+Route::get('/user/profile/{user}/{username}', ['middleware' => 'auth', 'uses' => 'PageController@userProfile']);
 Route::get('delete-post/{post}', ['middleware' => 'auth', 'uses' => 'PermController@deletePost']);
 Route::get('delete-comment/{comment}', ['middleware' => 'auth', 'uses' => 'PermController@deleteComment']);
 
